@@ -3,7 +3,7 @@ export default function Footer() {
     return (<footer class="bg-dark text-white py-3">
         <div class="container text-center">
 
-            <p>© 2023 PetLover. All rights reserved.</p>
+            <p>© 2023 PAWPRINT. All rights reserved.</p>
             <p>Follow us on social media:</p>
 
             <a href="https://www.instagram.com/jay_uchagaonkar/" class="text-white mx-2"><i class="fab fa-facebook-f"></i>@Jay</a>

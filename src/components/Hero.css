@@ -8,7 +8,7 @@
 /* This is the style for the hero section */
 .jumbotron {
     background-image: url("D:\reactproject1\src\images\Background-image.jpg"); /* This is the background image */
-    background-size: cover; /* This makes the image cover the whole section */
+    background-size: contain; /* This makes the image cover the whole section */
     background-position: center; /* This centers the image */
     height: 80vh; /* This sets the height of the section to 80% of the viewport height */
     display: flex;

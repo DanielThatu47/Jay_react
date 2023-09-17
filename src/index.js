@@ -8,6 +8,10 @@ import Review from './components/Review';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import Album from './components/Album';
+import SignUp from './components/SignUp'
+import Login from './components/Login'
+import Booking from './components/Booking';
+import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -15,7 +19,9 @@ root.render(
     <Hero/>
     <Album/>
     <Review/>
-    <Footer/>
+    <Footer/> 
+    {/* <Login/> */}
+    {/* <Booking/> */}
   </React.StrictMode>
 );
 // If you want to start measuring performance in your app, pass a function
