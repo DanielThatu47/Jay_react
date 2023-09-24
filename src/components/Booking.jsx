@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Booking.css';
 import {
   Container,
   Box,
@@ -25,7 +26,12 @@ const Booking = () => {
     grooming: false,
     training: false,
     daycare: false,
-    gender: 'female',
+    walking: false,
+    boarding:false,
+    dog:false,
+    cat:false,
+    feed:false,
+    gender: '',
     dateOfBirth: new Date(),
     petType: '',
     specialRequirements: '',
@@ -47,7 +53,11 @@ const Booking = () => {
       });
     }
   };
+  const radioGroupStyles = {
+    marginBottom: '20px',
+  };
 
+  const [gender, setGender] = useState('female');
   const handlePhoneNumberChange = (e) => {
     const phoneNumber = e.target.value;
     const phoneRegex = /^\d{10}$/; // Change this pattern according to your requirements.
@@ -60,13 +70,12 @@ const Booking = () => {
     console.log('Form submitted with data:', formData);
   };
 
-  return (
-    <Container
+  return (    <Container 
       style={{
-        backgroundColor: 'white',
+        
         padding: '20px',
         borderRadius: '10px',
-        boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
+        // boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
         maxWidth: '600px',
         margin: '0 auto',
       }}
@@ -128,8 +137,8 @@ const Booking = () => {
             value={formData.address}
             onChange={handleInputChange}
           />
-           {/* Phone Number Input */}
-           <Input
+          {/* Phone Number Input */}
+          <Input
             type="text"
             name="phoneNumber"
             placeholder="Phone Number"
@@ -150,59 +159,84 @@ const Booking = () => {
             required
           />
           {!isValidPhoneNumber && (
-            <p className="error-message">Please enter a valid phone number.</p>
+            <p className="error-message"style={{color:'Red'}}>Please enter a valid phone number.</p>
           )}
 
-          <Box
-            style={{
-              marginBottom: '10px',
-            }}
-          >
-            <Checkbox
-              name="grooming"
-              checked={formData.grooming}
-              onChange={handleInputChange}
-            >
-              Grooming
-            </Checkbox>
-            <Checkbox
-              name="training"
-              checked={formData.training}
-              onChange={handleInputChange}
-            >
-              Training
-            </Checkbox>
-            <Checkbox
-              name="daycare"
-              checked={formData.daycare}
-              onChange={handleInputChange}
-            >
-              Daycare
-            </Checkbox>
+<Box
+  style={{
+    marginBottom: '10px',
+   
+  }}
+>
+  <FormLabel>Services:</FormLabel>
+  <Checkbox style={{marginTop:'10px'}}
+    name="grooming"
+    checked={formData.grooming}
+    onChange={handleInputChange}
+  >
+    Grooming
+  </Checkbox>
+
+  <Checkbox style={{marginTop:'10px'}}
+    name="training"
+    checked={formData.training}
+    onChange={handleInputChange}
+  >
+    Training
+  </Checkbox>
+
+  <Checkbox style={{marginTop:'10px'}}
+    name="daycare"
+    checked={formData.daycare}
+    onChange={handleInputChange}
+  >
+    Daycare
+  </Checkbox>
+
+  <Checkbox style={{marginTop:'10px'}}
+    name="walking"
+    checked={formData.walking}
+    onChange={handleInputChange}
+  >
+    Walking
+  </Checkbox>
+  <Checkbox style={{marginTop:'10px'}}
+    name="boarding"
+    checked={formData.boarding}
+    onChange={handleInputChange}
+  >
+    Boarding
+  </Checkbox>
+
+{formData.daycare && ( // Conditionally render if daycare is selected
+  <Checkbox
+    style={{ display:'block', marginTop:'10px' }}
+    name="feed"
+    checked={formData.feed}
+    onChange={handleInputChange}
+  >
+    Should we feed your pet?
+  </Checkbox>
+)}
+
           </Box>
-          <FormControl
-            style={{
-              marginBottom: '20px',
-            }}
-          >
+          <FormControl style={radioGroupStyles}>
             <FormLabel>Pet's Gender</FormLabel>
-            <RadioGroup
-              name="gender"
-              value={formData.gender}
-              onChange={(e) =>
-                handleInputChange({ target: { name: 'gender', value: e } })
-              }
-            >
+            <RadioGroup defaultValue="female" name="radio-buttons-group">
               <Stack direction="row">
                 <FormControlLabel
                   value="female"
                   control={<MuiRadio />}
                   label="Female"
+                  checked={gender === 'female'}
+                  onChange={() => setGender('female')}
                 />
                 <FormControlLabel
                   value="male"
                   control={<MuiRadio />}
                   label="Male"
+                  checked={gender === 'male'}
+                  onChange={() => setGender('male')}
                 />
               </Stack>
             </RadioGroup>
@@ -219,7 +253,7 @@ const Booking = () => {
               onChange={(date) =>
                 handleInputChange({ target: { name: 'dateOfBirth', value: date } })
               }
-              dateFormat="MM/dd/yyyy"
+              dateFormat="dd/MM/yyyy"
               style={{
                 width: '100%',
                 border: '1px solid #ccc',
@@ -229,8 +263,21 @@ const Booking = () => {
               }}
             />
           </FormControl>
-
-          <Input
+          <FormLabel>Type Of Pet:</FormLabel>
+          <Checkbox
+              name="Dog"
+              checked={formData.dog}
+              onChange={handleInputChange}
+            >
+              Dog
+            </Checkbox> <Checkbox
+              name="Cat"
+              checked={formData.cat}
+              onChange={handleInputChange}
+            >
+              Cat
+            </Checkbox>
+          {/* <Input
             type="text"
             name="petType"
             placeholder="Type of Pet"
@@ -244,7 +291,7 @@ const Booking = () => {
             }}
             value={formData.petType}
             onChange={handleInputChange}
-          />
+          /> */}
           <Input
             type="text"
             name="specialRequirements"
@@ -255,12 +302,22 @@ const Booking = () => {
               padding: '10px',
               width: '100%',
               marginBottom: '15px',
+              marginTop:'15px',
               fontSize: 'lg',
             }}
             value={formData.specialRequirements}
             onChange={handleInputChange}
           />
 
+            {/* <Checkbox
+            style={{marginTop:'12px',
+          marginBottom:'12px'}}
+                    name="feed"
+                    checked={formData.feed}
+                    onChange={handleInputChange}
+                  >
+                    Should we feed your pet?
+                  </Checkbox> */}
           <Button
             type="button"
             style={{
@@ -280,6 +337,7 @@ const Booking = () => {
         </form>
       </Box>
     </Container>
+
   );
 };
 
