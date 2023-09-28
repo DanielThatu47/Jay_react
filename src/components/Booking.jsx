@@ -30,6 +30,9 @@ const Booking = () => {
     boarding:false,
     dog:false,
     cat:false,
+    hamster:false,
+    turtle:false,
+    rabbit:false,
     feed:false,
     gender: '',
     dateOfBirth: new Date(),
@@ -72,10 +75,10 @@ const Booking = () => {
 
   return (    <Container 
       style={{
-        
-        padding: '20px',
+        backgroundColor:'white',
+        padding: '50px',
         borderRadius: '10px',
-        // boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
+        boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
         maxWidth: '600px',
         margin: '0 auto',
       }}
@@ -221,7 +224,7 @@ const Booking = () => {
 
           </Box>
           <FormControl style={radioGroupStyles}>
-            <FormLabel>Pet's Gender</FormLabel>
+            <FormLabel style={{marginTop:'12px'}}>Pet's Gender</FormLabel>
             <RadioGroup defaultValue="female" name="radio-buttons-group">
               <Stack direction="row">
                 <FormControlLabel
@@ -247,7 +250,22 @@ const Booking = () => {
               marginBottom: '15px',
             }}
           >
-            <FormLabel>Date of Birth</FormLabel>
+            <FormLabel style={{display:'inline-block',marginRight:'12px'}}>Start of session:</FormLabel>
+            <DatePicker 
+              selected={formData.dateOfBirth}
+              onChange={(date) =>
+                handleInputChange({ target: { name: 'dateOfBirth', value: date } })
+              }
+              dateFormat="dd/MM/yyyy"
+              style={{marginLeft:'12px',
+                width: '100%',
+                border: '1px solid #ccc',
+                borderRadius: '5px',
+                padding: '10px',
+                fontSize: 'lg',
+              }}
+            />
+            <FormLabel style={{display:'inline-block',marginLeft:'12px',marginRight:'12px'}}>End of session:</FormLabel>
             <DatePicker
               selected={formData.dateOfBirth}
               onChange={(date) =>
@@ -263,7 +281,7 @@ const Booking = () => {
               }}
             />
           </FormControl>
-          <FormLabel>Type Of Pet:</FormLabel>
+          <FormLabel style={{marginBottom:'12px'}}>Type Of Pet:</FormLabel>
           <Checkbox
               name="Dog"
               checked={formData.dog}
@@ -276,6 +294,28 @@ const Booking = () => {
               onChange={handleInputChange}
             >
               Cat
+            </Checkbox>
+             
+            <Checkbox
+              name="Rabbit"
+              checked={formData.rabbit}
+              onChange={handleInputChange}
+            >
+              Rabbit
+            </Checkbox>
+            <Checkbox
+              name="Hamster"
+              checked={formData.hamster}
+              onChange={handleInputChange}
+            >
+              Hamster
+            </Checkbox>
+            <Checkbox
+              name="Turtle"
+              checked={formData.turtle}
+              onChange={handleInputChange}
+            >
+              Turtle
             </Checkbox>
           {/* <Input
             type="text"
@@ -320,9 +360,10 @@ const Booking = () => {
                   </Checkbox> */}
           <Button
             type="button"
-            style={{
+            style={{display:'block',
               backgroundColor: '#4285F4',
               color: 'white',
+              marginLeft:'8px',
               fontSize: 'lg',
               padding: '10px 20px',
               borderRadius: '5px',
