@@ -11,7 +11,7 @@ import {Routes, Route, Link,BrowserRouter as Router} from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <Navbar/>
+      {/* <Navbar/>
       <Routes>
   <Route path="/Home" element={<Home/>}></Route>
   <Route path="/AboutUs" element={<AboutUs/>}></Route>
@@ -19,7 +19,7 @@ function App() {
   <Route path="/Booking" element={<Booking/>}></Route>
   <Route path="/Profile" element={<Profile/>}></Route>
   <Route path="/Logout" element={<Logout/>}></Route>
-</Routes>
+</Routes> */}
     </div>
   );
 }

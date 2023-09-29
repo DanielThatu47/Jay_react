@@ -56,19 +56,26 @@ footer p:first-child {
     text-align: center;
 }
 
+/* .jay{
+    color: white;  This sets the text color to white 
+    font-size: 1.5rem; This sets the font size to 1.5 rem 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);  This adds a shadow effect to the text 
+    margin-bottom: 20px;  Add some space below the subheading 
+    text-align: center;
+} */
 
 /* This is the style for the headline */
 .jumbotron h1 {
     color:rgb(90, 85, 85); /* This sets the text color to white */
     font-size: 4rem; /* This sets the font size to 4 rem */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* This adds a shadow effect to the text */
+    /* This adds a shadow effect to the text */
 }
 
 /* This is the style for the subheading */
 .jumbotron p {
-    color: white; /* This sets the text color to white */
+    color: black; /* This sets the text color to white */
     font-size: 1.5rem; /* This sets the font size to 1.5 rem */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* This adds a shadow effect to the text */
+    
     margin-bottom: 20px; /* Add some space below the subheading */
 }
 .container{
@@ -91,9 +98,9 @@ text-align: center;
 
 /* This is the style for the section title */
 .container h1 {
-    color: white; /* This sets the text color to white */
-    font-size: 1.5rem; /* This sets the font size to 1.5 rem */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* This adds a shadow effect to the text */
+    color: black; /* This sets the text color to white */
+    font-size: 2rem; /* This sets the font size to 1.5 rem */
+   /* This adds a shadow effect to the text */
     margin-bottom: 20px; /* Increase the font size for section titles */
 }
 
@@ -103,9 +110,9 @@ text-align: center;
     font-size: 1.25rem; /* Increase the font size for section subtitles */
 }
 .text-center1{
-    color: white; /* This sets the text color to white */
+    color: black; /* This sets the text color to white */
     font-size: 1.5rem; /* This sets the font size to 1.5 rem */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* This adds a shadow effect to the text */
+     /* This adds a shadow effect to the text */
     margin-bottom: 20px; 
 }
 /* These are some media queries for responsive design */

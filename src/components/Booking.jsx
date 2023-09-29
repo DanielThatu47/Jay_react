@@ -73,7 +73,7 @@ const Booking = () => {
     console.log('Form submitted with data:', formData);
   };
 
-  return (    <Container 
+  return (    <div className='t1'><Container 
       style={{
         backgroundColor:'white',
         padding: '50px',
@@ -265,21 +265,27 @@ const Booking = () => {
                 fontSize: 'lg',
               }}
             />
-            <FormLabel style={{display:'inline-block',marginLeft:'12px',marginRight:'12px'}}>End of session:</FormLabel>
-            <DatePicker
-              selected={formData.dateOfBirth}
-              onChange={(date) =>
-                handleInputChange({ target: { name: 'dateOfBirth', value: date } })
-              }
-              dateFormat="dd/MM/yyyy"
-              style={{
-                width: '100%',
-                border: '1px solid #ccc',
-                borderRadius: '5px',
-                padding: '10px',
-                fontSize: 'lg',
-              }}
-            />
+         <div style={{ display: 'inline-block', marginRight: '12px' }}>
+  <FormLabel style={{ display: 'inline-block', marginRight: '12px' }}>
+    End of session:
+  </FormLabel>
+  <DatePicker
+    selected={formData.dateOfBirth}
+    onChange={(date) =>
+      handleInputChange({ target: { name: 'dateOfBirth', value: date } })
+    }
+    dateFormat="dd/MM/yyyy"
+    style={{
+      width: '100%',
+      border: '1px solid #ccc',
+      borderRadius: '5px',
+      padding: '10px',
+      fontSize: 'lg',
+      display: 'inline-block',
+    }}
+  />
+</div>
+
           </FormControl>
           <FormLabel style={{marginBottom:'12px'}}>Type Of Pet:</FormLabel>
           <Checkbox
@@ -377,7 +383,7 @@ const Booking = () => {
           </Button>
         </form>
       </Box>
-    </Container>
+    </Container></div>
 
   );
 };
