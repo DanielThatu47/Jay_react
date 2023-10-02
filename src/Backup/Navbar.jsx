@@ -38,6 +38,10 @@ function Navbar() {
     setAnchorElUser(null);
   };
 
+
+  const { loginWithRedirect } = useAuth0(); 
+   const { logout } = useAuth0();
+
   return (
     <AppBar position="static" sx={{ backgroundColor: '#FAAB78' }}>
       <Container maxWidth="xl">
