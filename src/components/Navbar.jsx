@@ -125,6 +125,10 @@ function Navbar() {
             ))}
           </Box>
 
+
+          <Button onClick={() => loginWithRedirect()}>Log In</Button>
+
+
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
